@@ -12,7 +12,8 @@ public class SectionConfiguration : IEntityTypeConfiguration<Section>
 
         builder.Property(s => s.Name)
             .IsRequired()
-            .HasColumnType("nvarchar(max)");
+            .HasMaxLength(128)
+            .HasColumnType("nvarchar(128)");
 
         builder.HasOne(s => s.Manifest)
             .WithMany(m => m.Sections)

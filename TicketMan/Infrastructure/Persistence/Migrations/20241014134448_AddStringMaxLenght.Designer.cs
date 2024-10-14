@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TicketMan.Infrastructure.Persistence.Context;
 
@@ -11,9 +12,11 @@ using TicketMan.Infrastructure.Persistence.Context;
 namespace TicketMan.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(TmDbContext))]
-    partial class TmDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241014134448_AddStringMaxLenght")]
+    partial class AddStringMaxLenght
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

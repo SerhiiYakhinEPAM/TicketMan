@@ -12,6 +12,7 @@ public class PriceTypeConfiguration : IEntityTypeConfiguration<PriceType>
 
         builder.Property(pt => pt.TypeName)
             .IsRequired()
-            .HasColumnType("nvarchar(max)");
+            .HasMaxLength(128)
+            .HasColumnType("nvarchar(128)");
     }
 }

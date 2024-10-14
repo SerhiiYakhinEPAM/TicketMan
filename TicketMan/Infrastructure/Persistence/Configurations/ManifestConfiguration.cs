@@ -11,8 +11,8 @@ public class ManifestConfiguration : IEntityTypeConfiguration<Manifest>
         builder.HasKey(m => m.Id);
 
         builder.Property(m => m.Name)
-            .IsRequired()
-            .HasColumnType("nvarchar(max)");
+            .HasMaxLength(128)
+            .HasColumnType("nvarchar(128)");
 
         builder.HasOne(m => m.Venue)
             .WithMany(v => v.Manifests)

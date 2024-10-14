@@ -12,7 +12,8 @@ public class SeatConfiguration : IEntityTypeConfiguration<Seat>
 
         builder.Property(s => s.SeatNumber)
             .IsRequired()
-            .HasColumnType("nvarchar(max)");
+            .HasMaxLength(128)
+            .HasColumnType("nvarchar(128)");
 
         builder.Property(s => s.IsGeneralAdmission)
             .IsRequired()

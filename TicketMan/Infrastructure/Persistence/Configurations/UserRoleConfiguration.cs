@@ -12,6 +12,7 @@ public class UserRoleConfiguration : IEntityTypeConfiguration<UserRole>
 
         builder.Property(ur => ur.RoleName)
             .IsRequired()
-            .HasColumnType("nvarchar(max)");
+            .HasMaxLength(128)
+            .HasColumnType("nvarchar(128)");
     }
 }

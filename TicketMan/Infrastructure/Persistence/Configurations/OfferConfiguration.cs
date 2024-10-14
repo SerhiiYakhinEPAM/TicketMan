@@ -12,10 +12,12 @@ public class OfferConfiguration : IEntityTypeConfiguration<Offer>
 
         builder.Property(o => o.Name)
             .IsRequired()
-            .HasColumnType("nvarchar(max)");
+            .HasMaxLength(128)
+            .HasColumnType("nvarchar(128)");
 
         builder.Property(o => o.Description)
-            .HasColumnType("nvarchar(max)");
+            .HasMaxLength(128)
+            .HasColumnType("nvarchar(128)");
 
         builder.HasOne(o => o.Event)
             .WithMany(e => e.Offers)

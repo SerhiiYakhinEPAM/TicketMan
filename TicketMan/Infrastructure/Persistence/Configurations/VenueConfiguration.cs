@@ -12,10 +12,12 @@ public class VenueConfiguration : IEntityTypeConfiguration<Venue>
 
         builder.Property(v => v.Name)
             .IsRequired()
-            .HasColumnType("nvarchar(max)");
+            .HasMaxLength(128)
+            .HasColumnType("nvarchar(128)");
 
         builder.Property(v => v.Location)
             .IsRequired()
-            .HasColumnType("nvarchar(max)");
+            .HasMaxLength(128)
+            .HasColumnType("nvarchar(128)");
     }
 }

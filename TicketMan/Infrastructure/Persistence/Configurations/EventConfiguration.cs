@@ -12,7 +12,8 @@ namespace TicketMan.Infrastructure.Persistence.Configurations
 
             builder.Property(e => e.Name)
                 .IsRequired()
-                .HasColumnType("nvarchar(max)");
+                .HasMaxLength(128)
+                .HasColumnType("nvarchar(128)");
 
             builder.Property(e => e.Date)
                 .IsRequired()
