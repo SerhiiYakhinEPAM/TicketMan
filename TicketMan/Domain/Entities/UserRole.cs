@@ -1,10 +1,9 @@
-﻿namespace TicketMan.Domain.Entities;
-
-public partial class UserRole
+﻿namespace TicketMan.Domain.Entities
 {
-    public int Id { get; set; }
-
-    public string? RoleName { get; set; }
-
-    public virtual ICollection<User> Users { get; set; } = new List<User>();
+    public class UserRole
+    {
+        public int Id { get; set; }
+        public string RoleName { get; set; }
+        public ICollection<User> Users { get; set; }
+    }
 }

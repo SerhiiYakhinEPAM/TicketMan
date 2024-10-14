@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 using TicketMan.Application.Common.Interfaces;
 using TicketMan.Domain.Entities;
 
 namespace TicketMan.Infrastructure.Persistence.Context;
 
-public partial class TmDbContext : DbContext, ITmDbContext
+public class TmDbContext : DbContext, ITmDbContext
 {
     public TmDbContext()
     {
@@ -42,9 +43,7 @@ public partial class TmDbContext : DbContext, ITmDbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
-        modelBuilder.Entity<Price>()
-            .Property(p => p.Amount)
-            .HasPrecision(18, 2);
+        var assembly = Assembly.GetExecutingAssembly();
+        modelBuilder.ApplyConfigurationsFromAssembly(assembly);
     }
 }
